@@ -9,12 +9,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<template id="__bundler_thumbnail" data-bg-color="#0f2035">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0f2035"/>
+    <rect x="80" y="80" width="200" height="40" rx="4" fill="#3f7cc0" opacity=".6"/>
+    <rect x="80" y="200" width="520" height="60" rx="4" fill="#fff" opacity=".9"/>
+    <rect x="80" y="280" width="400" height="60" rx="4" fill="#fff" opacity=".9"/>
+    <rect x="80" y="360" width="320" height="60" rx="4" fill="#3f7cc0" opacity=".8"/>
+    <rect x="80" y="460" width="180" height="48" rx="4" fill="#3f7cc0"/>
+    <rect x="280" y="460" width="180" height="48" rx="4" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+  </svg>
+</template>
 </head>
 <body data-hero="light">
 
 <!-- ============================== NAV ============================== -->
 <nav class="nav" id="nav">
-  <a href="#top" class="nav__logo" aria-label="D&D PlanWerk Startseite"><img src="assets/dd-planwerk-logo.svg" alt="D&D PlanWerk"></a>
+  <a href="#top" class="nav__logo" aria-label="D&D PlanWerk Startseite"><img src="assets/dd-planwerk-logo.png" alt="D&D PlanWerk"></a>
   <div class="nav__links" id="navlinks">
     <a class="lnk" href="#ueber">Über uns</a>
     <a class="lnk" href="#leistungen">Leistungen</a>
@@ -29,8 +40,6 @@
 
 <!-- ============================== HERO ============================== -->
 <header class="hero" id="top">
-  <div class="hero__bg"><div class="ph" data-label="Platzhalter · Hero — Architektur / Interior · euer Projektfoto (≥ 1600×900)"></div></div>
-  <div class="hero__scrim"></div>
   <div class="hero__inner">
     <span class="eyebrow reveal">Berlin & Brandenburg · seit über 10 Jahren</span>
     <h1 class="reveal" data-d="1">Planung. Gestaltung. <span class="gold">Handwerk.</span><br>Aus einer Hand.</h1>
@@ -354,7 +363,7 @@
   </div>
   <div class="tw-row">
     <span>Akzentfarbe</span>
-    <div class="seg" data-key="accent"><button data-val="gold">Gold</button><button data-val="sage">Salbeigrün</button></div>
+    <div class="seg" data-key="accent"><button data-val="blau">Blau</button><button data-val="hell">Hellblau</button></div>
   </div>
   <div class="tw-row">
     <span>Eckenstil</span>
@@ -376,19 +385,19 @@ if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
 
 /* ---------- Tweakable defaults (host-persisted) ---------- */
 const TWEAKS = /*EDITMODE-BEGIN*/{
-  "hero": "light",
-  "accent": "gold",
+  "hero": "dark",
+  "accent": "blau",
   "corners": "soft"
 }/*EDITMODE-END*/;
 
 const ACCENTS = {
-  gold:{a:"#c9a84c",d:"#a8862f",t:"rgba(201,168,76,.12)"},
-  sage:{a:"#8a9a5b",d:"#6c7b41",t:"rgba(138,154,91,.14)"}
+  blau:{a:"#3f7cc0",d:"#2c5e9b",t:"rgba(63,124,192,.12)"},
+  hell:{a:"#6fa8dc",d:"#3f7cc0",t:"rgba(111,168,220,.16)"}
 };
 
 function applyTweaks(){
   document.body.setAttribute('data-hero', TWEAKS.hero);
-  const ac = ACCENTS[TWEAKS.accent] || ACCENTS.gold;
+  const ac = ACCENTS[TWEAKS.accent] || ACCENTS.blau;
   document.documentElement.style.setProperty('--gold', ac.a);
   document.documentElement.style.setProperty('--gold-deep', ac.d);
   document.documentElement.style.setProperty('--gold-tint', ac.t);
