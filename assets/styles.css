@@ -413,9 +413,10 @@ section{scroll-margin-top:20px}
 .fab--tel{background:var(--gold)}
 .fab--form{background:var(--ink-2);border:1px solid rgba(255,255,255,.15)}
 @media(max-width:560px){
-  .fab-group{right:16px;bottom:16px;gap:8px}
-  .fab{padding:13px}
-  .fab .fab__txt{display:none}
+  .fab-group{right:12px;bottom:16px;gap:8px}
+  .fab{padding:11px 16px;font-size:.82rem}
+  .fab svg{width:16px;height:16px}
+  .fab .fab__txt{display:inline}
 }
 
 /* ============================================================ PROJEKT-DETAILSEITE */
