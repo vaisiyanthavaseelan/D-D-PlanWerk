@@ -394,19 +394,27 @@ section{scroll-margin-top:20px}
 }
 
 /* ============================================================ FLOATING CONTACT */
-.fab{
+.fab-group{
   position:fixed;right:20px;bottom:20px;z-index:90;
-  display:inline-flex;align-items:center;gap:.5em;
-  padding:14px 20px;border-radius:999px;background:var(--gold);color:#fff;
-  font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;border:0;cursor:pointer;
-  box-shadow:0 16px 36px -12px rgba(0,0,0,.5);
-  transform:translateY(0);transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,color .3s;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+  opacity:1;transition:opacity .4s ease;
 }
-.fab:hover{background:var(--gold-deep);color:#fff;transform:translateY(-3px)}
-.fab svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.7;fill:none;flex-shrink:0}
-.fab__txt{white-space:nowrap;}
+.fab{
+  display:inline-flex;align-items:center;gap:.5em;
+  padding:13px 20px;border-radius:999px;color:#fff;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:.88rem;border:0;cursor:pointer;
+  box-shadow:0 12px 28px -10px rgba(0,0,0,.5);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,filter .25s;
+}
+.fab:hover{transform:translateY(-3px);box-shadow:0 20px 36px -12px rgba(0,0,0,.5);filter:brightness(1.08)}
+.fab svg{width:18px;height:18px;flex-shrink:0}
+.fab__txt{white-space:nowrap}
+.fab--wa{background:#25D366}
+.fab--tel{background:var(--gold)}
+.fab--form{background:var(--ink-2);border:1px solid rgba(255,255,255,.15)}
 @media(max-width:560px){
-  .fab{right:16px;bottom:16px;padding:14px}
+  .fab-group{right:16px;bottom:16px;gap:8px}
+  .fab{padding:13px}
   .fab .fab__txt{display:none}
 }
 
@@ -556,6 +564,159 @@ body.lb-open{overflow:hidden}
   .lb__img{max-height:70vh}
 }
 .pd-next{max-width:var(--container);margin:clamp(60px,8vw,110px) auto 0;padding:0 var(--gut)}
+
+/* ============================================================ PROZESS */
+.psteps{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:clamp(8px,1.4vw,16px);
+  margin-top:clamp(46px,6vw,72px);
+  position:relative;
+}
+.psteps::before{
+  content:'';
+  position:absolute;
+  top:60px;
+  left:calc(100%/12);
+  right:calc(100%/12);
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--gold) 15%,var(--gold) 85%,transparent);
+  opacity:.2;
+  pointer-events:none;
+}
+.pstep{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:clamp(18px,2.2vw,26px) clamp(6px,1vw,14px);
+  position:relative;z-index:1;
+}
+.pstep__num{
+  font-family:'Inter',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.22em;
+  color:var(--gold);margin-bottom:14px;line-height:1;
+}
+.pstep__ico{
+  width:56px;height:56px;border:1px solid var(--gold);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold);
+  margin-bottom:18px;background:var(--paper);position:relative;z-index:1;
+}
+.pstep__ico svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.6;fill:none}
+.pstep h3{font-size:.98rem;color:#fff;margin-bottom:.4rem;line-height:1.25}
+.pstep p{font-size:.84rem;color:#b8cfe3;max-width:14ch;margin:0 auto;line-height:1.55}
+.psteps__cta{text-align:center;margin-top:clamp(40px,5vw,64px)}
+
+@media(max-width:1000px){
+  .psteps{grid-template-columns:repeat(3,1fr)}
+  .psteps::before{display:none}
+}
+@media(max-width:580px){
+  .psteps{grid-template-columns:repeat(2,1fr);gap:12px}
+  .pstep p{max-width:none}
+}
+
+/* ============================================================ CTA BAND */
+.cta-band{background:var(--gold);padding:clamp(36px,5vw,56px) 0}
+.cta-band__inner{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:24px;
+}
+.cta-band__txt h3{
+  font-family:'Playfair Display',Georgia,serif;font-weight:500;
+  font-size:clamp(1.4rem,2.4vw,2rem);color:#fff;margin-bottom:.3rem;
+}
+.cta-band__txt p{color:rgba(255,255,255,.85);font-size:1.02rem;max-width:46ch}
+.cta-band__btns{display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0}
+.cta-band__primary{
+  background:#fff;color:var(--gold);border:1px solid #fff;
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:'Inter',sans-serif;font-weight:500;font-size:.92rem;letter-spacing:.02em;
+  padding:.95em 1.7em;border-radius:var(--radius);cursor:pointer;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,color .3s,box-shadow .35s;
+}
+.cta-band__primary:hover{background:var(--gold-deep);color:#fff;border-color:var(--gold-deep);transform:translateY(-3px);box-shadow:0 14px 30px -14px rgba(0,0,0,.35)}
+.cta-band__primary .arr{transition:transform .35s}
+.cta-band__primary:hover .arr{transform:translateX(5px)}
+.cta-band__ghost{
+  background:transparent;color:#fff;border:1px solid rgba(255,255,255,.65);
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:'Inter',sans-serif;font-weight:500;font-size:.92rem;letter-spacing:.02em;
+  padding:.95em 1.7em;border-radius:var(--radius);cursor:pointer;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s,box-shadow .35s;
+}
+.cta-band__ghost:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.9);transform:translateY(-3px);box-shadow:0 14px 30px -14px rgba(0,0,0,.25)}
+
+@media(max-width:760px){
+  .cta-band__inner{flex-direction:column;align-items:flex-start}
+  .cta-band__btns{width:100%}
+  .cta-band__btns .cta-band__primary,.cta-band__btns .cta-band__ghost{flex:1;justify-content:center}
+}
+
+/* ============================================================ PHIL 5-COL */
+.phil__grid--5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){
+  .phil__grid.phil__grid--5{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+  .phil__grid.phil__grid--5{grid-template-columns:1fr 1fr}
+}
+@media(max-width:400px){
+  .phil__grid.phil__grid--5{grid-template-columns:1fr}
+}
+
+/* ============================================================ GOOGLE RATING */
+.g-rating{
+  display:flex;align-items:center;gap:clamp(18px,3vw,32px);
+  margin-bottom:clamp(32px,4vw,52px);flex-wrap:wrap;
+}
+.g-logo{display:flex;align-items:center;gap:8px}
+.g-logo__label{font-size:.88rem;color:rgba(255,255,255,.55);letter-spacing:.08em;font-weight:500}
+.g-rating__score{
+  font-family:'Playfair Display',serif;font-size:3.4rem;color:#fff;line-height:1;
+}
+.g-rating__detail{}
+.g-rating__stars{color:#fbbc04;font-size:1.15rem;letter-spacing:3px;line-height:1;margin-bottom:4px}
+.g-rating__label{font-size:.82rem;color:rgba(255,255,255,.5);letter-spacing:.02em}
+
+/* ============================================================ NAV TELEFON */
+.nav__tel{
+  display:flex;align-items:center;gap:.45em;
+  font-family:'Inter',sans-serif;font-size:.86rem;font-weight:500;
+  color:rgba(255,255,255,.78);
+  border-left:1px solid rgba(255,255,255,.15);
+  padding-left:clamp(16px,2vw,28px);margin-left:4px;
+  transition:color .2s;white-space:nowrap;
+}
+.nav__tel:hover{color:var(--gold)}
+.nav__tel svg{width:15px;height:15px;flex:none;stroke:currentColor;stroke-width:1.7;fill:none}
+@media(max-width:900px){
+  .nav__tel{border-left:0;padding-left:0;margin-left:0;font-size:1.1rem;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+}
+
+/* ============================================================ FINAL CTA */
+.final-cta{
+  background:var(--ink);
+  padding:clamp(80px,12vw,140px) 0;
+  text-align:center;
+}
+.final-cta__inner{max-width:58ch;margin:0 auto}
+.final-cta h2{
+  font-size:clamp(2.4rem,5.5vw,4.2rem);color:#fff;
+  margin-bottom:1.2rem;line-height:1.04;
+}
+.final-cta__gold{color:var(--gold);font-style:italic}
+.final-cta p{
+  color:rgba(255,255,255,.68);
+  font-size:clamp(1rem,1.4vw,1.14rem);
+  max-width:48ch;margin:0 auto 2.6rem;
+}
+.final-cta__btns{
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+}
+.final-cta__tel{
+  display:inline-flex;align-items:center;gap:.55em;
+  font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:500;
+  color:rgba(255,255,255,.6);transition:color .25s;
+}
+.final-cta__tel:hover{color:var(--gold)}
+.final-cta__tel svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.5;fill:none;flex:none}
 .pd-cta{background:var(--ink);color:#fff;border-radius:var(--radius);padding:clamp(40px,6vw,72px);text-align:center}
 .pd-cta h2{color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem}
 .pd-cta p{color:rgba(255,255,255,.72);max-width:48ch;margin:0 auto 2rem}
