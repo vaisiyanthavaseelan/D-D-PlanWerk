@@ -4,29 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projekt — D&D PlanWerk GmbH</title>
-<meta name="description" content="Projektreferenz der D&D PlanWerk GmbH — Planung, Gestaltung & Handwerk aus einer Hand.">
+<meta name="description" content="Projektreferenz der D&D PlanWerk GmbH — Planung, Gestaltung &amp; Handwerk aus einer Hand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 <style>
-/* ============================================================
-   P02 MOBILE: zwei einzelne Vorher-Bilder → ein kombiniertes
-   Karussell (nur auf Mobilgeräten, Desktop bleibt unangetastet)
-   ============================================================ */
-.p02-mobile-car{display:none} /* auf Desktop versteckt */
+.p02-mobile-car{display:none}
 @media(max-width:760px){
-  /* Karussell einblenden und auf halbe Breite setzen */
   .p02-mobile-car{display:flex;grid-column:span 3}
-  /* Die zwei Einzel-Vorher-Bilder auf Mobil ausblenden */
   .p02-vorher-single{display:none !important}
-  /* Nachher-Bild auf Mobil ebenfalls auf halbe Breite */
   .gitem.p02-nachher{grid-column:span 3 !important}
-  /* Größere Bilder: höheres Seitenverhältnis */
   .p02-mobile-car .gitem__pic{aspect-ratio:4/5 !important}
   .gitem.p02-nachher .gitem__pic{aspect-ratio:4/5 !important}
-
-  /* P01: dritte Reihe — größere Bilder auf Mobil */
   .p01-row3 .gitem__pic{aspect-ratio:3/5 !important}
 }
 </style>
@@ -85,7 +75,7 @@
   </div>
 </main>
 
-<!-- ============================== LIGHTBOX (mobile tap) ============================== -->
+<!-- ============================== LIGHTBOX ============================== -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
   <figure class="lb__stage">
     <img class="lb__img" id="lb-img" alt="">
@@ -100,7 +90,7 @@
   <div class="foot__top">
     <div>
       <span class="foot__eyebrow">D&amp;D PlanWerk GmbH</span>
-      <p class="foot__tag">Planung, Gestaltung & Handwerk aus einer Hand — für Berlin & Brandenburg.</p>
+      <p class="foot__tag">Planung, Gestaltung &amp; Handwerk aus einer Hand — für Berlin &amp; Brandenburg.</p>
     </div>
     <div class="foot__cols">
       <div class="foot__col">
@@ -122,14 +112,11 @@
 </footer>
 
 <script>
-/* ---------- Scroll behavior on load / reload ---------- */
 if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
 (function(){
   const nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
   const isReload = nav ? nav.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
-  if(isReload && location.hash){
-    history.replaceState(null, '', location.pathname + location.search);
-  }
+  if(isReload && location.hash){ history.replaceState(null, '', location.pathname + location.search); }
   window.addEventListener('load', ()=>{ if(isReload || !location.hash) window.scrollTo(0,0); });
 })();
 
@@ -142,14 +129,9 @@ const PROJECTS = {
     year:"2024",
     intro:"Behutsame Sanierung einer Altbauwohnung — Grundriss geöffnet, Stuck erhalten, Technik auf heutigen Stand gebracht. Geplant und ausgeführt aus einer Hand.",
     images:[
-      // 1) Hero — Wohnzimmer fertig (landscape)
       {src:"assets/projekte/01/01-wohnzimmer-nachher.jpeg", ratio:"16/10", size:"full",  phase:"nachher", cap:"Wohnen · Großzügiger Wohnbereich nach der Sanierung"},
-
-      // 2) Bad — Vorher/Nachher nebeneinander (beide hochkant)
       {src:"assets/projekte/01/06-bad-rohinstallation.jpeg", ratio:"3/4", size:"half", phase:"vorher",  cap:"Bad · Rohinstallation mit neuer Vorwand"},
       {src:"assets/projekte/01/04-bad-nachher.jpeg",         ratio:"3/4", size:"half", phase:"nachher", cap:"Bad · Walk-In mit indirekt beleuchteten Nischen"},
-
-      // 3) Dritte Reihe: Vorher | Prozess-Carousel | Nachher (gleiche Größe)
       {src:"assets/projekte/01/08-entkernung.jpeg",          ratio:"3/4", size:"third", phase:"vorher",  cap:"Entkernung · Bestand vor Beginn"},
       {
         ratio:"3/4", size:"third",
@@ -161,12 +143,17 @@ const PROJECTS = {
       {src:"assets/projekte/01/09-wohnen-nachher.jpeg",     ratio:"3/4", size:"third", phase:"nachher", cap:"Wohnen · Eichenparkett & frische Wände"}
     ]
   },
-  "02":{title:"Loft-Umbau Prenzlauer Berg", cat:"Gestaltung · Innenausbau", scope:"Innenarchitektur & Ausbau", loc:"Berlin-Prenzlauer Berg", year:"2023", intro:"Aus einer ehemaligen Gewerbeeinheit wird ein offenes Loft mit klarer Materialsprache, indirekter Lichtführung und maßgefertigten Einbauten.",
+  "02":{
+    title:"Loft-Umbau Prenzlauer Berg",
+    cat:"Gestaltung · Innenausbau",
+    scope:"Innenarchitektur & Ausbau",
+    loc:"Berlin-Prenzlauer Berg",
+    year:"2023",
+    intro:"Aus einer ehemaligen Gewerbeeinheit wird ein offenes Loft mit klarer Materialsprache, indirekter Lichtführung und maßgefertigten Einbauten.",
     images:[
       {src:"assets/projekte/02/01-dachboden-vorher.jpeg", ratio:"3/4", size:"third", phase:"vorher",  cap:"Dachboden · Rohzustand mit Isover-Dämmung"},
       {src:"assets/projekte/02/02-raum-vorher.jpeg",      ratio:"3/4", size:"third", phase:"vorher",  cap:"Raum · Bestand vor Entkernung"},
       {src:"assets/projekte/02/03-loft-prozess.jpeg",     ratio:"3/4", size:"third", phase:"nachher", cap:"Loft · Glasdach-Halle nach dem Umbau"},
-
       {
         ratio:"3/4", size:"half",
         carousel:[
@@ -184,12 +171,20 @@ const PROJECTS = {
       }
     ]
   },
-  "03":{title:"Praxis Mitte", cat:"Trockenbau · Licht", scope:"Ausbau & Lichtplanung", loc:"Berlin-Mitte", year:"2024", intro:"Funktionaler Praxisausbau mit ruhiger Atmosphäre — durchdachte Raumaufteilung, schallschützender Trockenbau und blendfreie Beleuchtung.",
+  "03":{
+    title:"Praxis Mitte",
+    cat:"Trockenbau · Licht",
+    scope:"Ausbau & Lichtplanung",
+    loc:"Berlin-Mitte",
+    year:"2024",
+    intro:"Funktionaler Praxisausbau mit ruhiger Atmosphäre — durchdachte Raumaufteilung, schallschützender Trockenbau und blendfreie Beleuchtung.",
     images:[
       {src:"assets/projekte/03/00-altbau-vorher.jpeg",     ratio:"3/4", size:"half", phase:"vorher",  cap:"Altbau · Entkernung mit Bauschutt und freigelegtem Mauerwerk"},
       {src:"assets/projekte/03/01-altbau-prozess-a.jpeg",  ratio:"3/4", size:"half", phase:"nachher", cap:"Altbau · Verputzter Raum mit Stuckdecke und Flügeltür"},
       {src:"assets/projekte/03/03-flur-vorher.jpeg",       ratio:"3/4", size:"half", phase:"vorher",  cap:"Flur · Rohzustand mit alten Dielen und abgeblättertem Putz"},
-      {src:"assets/projekte/03/04-flur-nachher.jpeg",      ratio:"3/4", size:"half", phase:"nachher", cap:"Flur · Frisch verputzt mit Eichenparkett und Einbauleuchten"}
+      {src:"assets/projekte/03/04-flur-nachher.jpeg",      ratio:"3/4", size:"half", phase:"nachher", cap:"Flur · Frisch verputzt mit Eichenparkett und Einbauleuchten"},
+      {src:"assets/projekte/03/05-raum-nachher.jpg",       ratio:"3/4", size:"half", phase:"nachher", cap:"Raum · Fertiggestellt mit neuem Dielenboden"},
+      {src:"assets/projekte/03/06-wohnen-nachher.jpg",     ratio:"3/4", size:"half", phase:"nachher", cap:"Wohnen · Heller Wohnbereich mit Eichenparkett und neuen Fenstern"}
     ]
   },
   "04":{title:"Wohnhaus Brandenburg", cat:"Neubau · Planung", scope:"Neubau & Projektsteuerung", loc:"Brandenburg", year:"2023", intro:"Energieeffizienter Neubau eines Einfamilienhauses — von der Entwurfs- und Genehmigungsplanung bis zur Koordination aller Gewerke."},
@@ -208,83 +203,55 @@ document.getElementById('pd-scope').textContent = p.scope;
 document.getElementById('pd-loc').textContent = p.loc;
 document.getElementById('pd-year').textContent = p.year;
 
-/* ---------- Gallery: render real images if available, otherwise keep placeholders ---------- */
 const gallery = document.getElementById('gallery');
 if(p.images && p.images.length){
   gallery.innerHTML = '';
   const PHASE_LABEL = {vorher:'Vorher', nachher:'Nachher', prozess:'Prozess'};
-
-  /* Flatten carousel groups for preloading */
   const flat = [];
   p.images.forEach(item=>{
-    if(item.carousel){
-      item.carousel.forEach(sub => flat.push({...sub, ratio:item.ratio}));
-    } else {
-      flat.push(item);
-    }
+    if(item.carousel){ item.carousel.forEach(sub => flat.push({...sub, ratio:item.ratio})); }
+    else { flat.push(item); }
   });
-
-  /* Preload all images */
   flat.forEach(img=>{ const i = new Image(); i.src = img.src; });
 
   p.images.forEach(item=>{
     if(item.carousel){
-      /* ----- Carousel slot ----- */
       const el = document.createElement('figure');
       el.className = 'gitem gitem--car g-' + (item.size || 'third');
-
       const stage = document.createElement('div');
       stage.className = 'gitem__pic';
       if(item.ratio) stage.style.aspectRatio = item.ratio.replace('/', ' / ');
-
       const badge = document.createElement('span');
       badge.className = 'gitem__badge';
-
       const prev = document.createElement('button');
       prev.type='button'; prev.className='car__nav car__nav--prev'; prev.setAttribute('aria-label','Vorheriges Bild'); prev.textContent='‹';
       const next = document.createElement('button');
       next.type='button'; next.className='car__nav car__nav--next'; next.setAttribute('aria-label','Nächstes Bild'); next.textContent='›';
-
       const dots = document.createElement('div');
       dots.className = 'car__dots';
       item.carousel.forEach((_,di)=>{
         const d = document.createElement('span'); d.className='car__dot'; if(di===0) d.classList.add('is-on'); dots.appendChild(d);
       });
-
       const cap = document.createElement('figcaption');
       cap.className = 'gitem__cap';
-
-      stage.appendChild(badge);
-      stage.appendChild(prev);
-      stage.appendChild(next);
-      stage.appendChild(dots);
-      el.appendChild(stage);
-      el.appendChild(cap);
-
+      stage.appendChild(badge); stage.appendChild(prev); stage.appendChild(next); stage.appendChild(dots);
+      el.appendChild(stage); el.appendChild(cap);
       let ci = 0;
-      /* Create two layered image divs for crossfade */
       const imgA = document.createElement('div');
       const imgB = document.createElement('div');
       const layerStyle = 'position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity .35s ease;';
       imgA.style.cssText = layerStyle + 'opacity:1;z-index:1;';
       imgB.style.cssText = layerStyle + 'opacity:0;z-index:2;';
-      stage.appendChild(imgA);
-      stage.appendChild(imgB);
-      let activeLayer = 'A'; // which layer is currently visible
-
+      stage.appendChild(imgA); stage.appendChild(imgB);
+      let activeLayer = 'A';
       function render(){
         const sub = item.carousel[ci];
-        /* Crossfade: load new image on hidden layer, then swap opacity */
         if(activeLayer === 'A'){
           imgB.style.backgroundImage = "url('" + sub.src + "')";
-          imgB.style.opacity = '1';
-          imgA.style.opacity = '0';
-          activeLayer = 'B';
+          imgB.style.opacity = '1'; imgA.style.opacity = '0'; activeLayer = 'B';
         } else {
           imgA.style.backgroundImage = "url('" + sub.src + "')";
-          imgA.style.opacity = '1';
-          imgB.style.opacity = '0';
-          activeLayer = 'A';
+          imgA.style.opacity = '1'; imgB.style.opacity = '0'; activeLayer = 'A';
         }
         if(sub.phase && PHASE_LABEL[sub.phase]){
           badge.textContent = PHASE_LABEL[sub.phase];
@@ -295,7 +262,6 @@ if(p.images && p.images.length){
         cap.textContent = sub.cap || '';
         dots.querySelectorAll('.car__dot').forEach((d,di)=> d.classList.toggle('is-on', di===ci));
       }
-      /* Set initial image directly (no crossfade for first render) */
       imgA.style.backgroundImage = "url('" + item.carousel[0].src + "')";
       {
         const sub = item.carousel[0];
@@ -306,7 +272,6 @@ if(p.images && p.images.length){
           el.className = 'gitem gitem--car g-' + (item.size || 'third') + ' is-' + sub.phase;
         }
         cap.textContent = sub.cap || '';
-        dots.querySelectorAll('.car__dot').forEach((d,di)=> d.classList.toggle('is-on', di===0));
       }
       function step(d, ev){
         if(ev){ ev.stopPropagation(); }
@@ -318,8 +283,6 @@ if(p.images && p.images.length){
       gallery.appendChild(el);
       return;
     }
-
-    /* ----- Single image slot ----- */
     const el = document.createElement('figure');
     el.className = 'gitem g-' + (item.size || 'third') + (item.phase ? ' is-' + item.phase : '');
     const pic = document.createElement('div');
@@ -343,71 +306,50 @@ if(p.images && p.images.length){
     gallery.appendChild(el);
   });
 
-  /* ---- P01: dritte Reihe auf Mobil größer ---- */
   if(id === '01'){
     const gitems01 = Array.from(gallery.querySelectorAll('.gitem'));
-    // Index 0 = full, 1+2 = half, 3+4+5 = third (dritte Reihe)
-    [3,4,5].forEach(function(i){
-      if(gitems01[i]) gitems01[i].classList.add('p01-row3');
-    });
+    [3,4,5].forEach(function(i){ if(gitems01[i]) gitems01[i].classList.add('p01-row3'); });
   }
 
-  /* ---- P02: Mobil-Karussell für die zwei Vorher-Bilder ---- */
   if(id === '02'){
     const gitems = Array.from(gallery.querySelectorAll('.gitem'));
-    /* Einzel-Vorher-Items markieren (werden auf Mobil versteckt) */
     gitems[0].classList.add('p02-vorher-single');
     gitems[1].classList.add('p02-vorher-single');
-    /* Nachher-Item markieren (wird auf Mobil auf span 3 erweitert) */
     gitems[2].classList.add('p02-nachher');
-
     const vorherData = [
       {src:p.images[0].src, cap:p.images[0].cap},
       {src:p.images[1].src, cap:p.images[1].cap}
     ];
-
-    /* Karussell-Container */
     const mc = document.createElement('figure');
     mc.className = 'gitem gitem--car p02-mobile-car is-vorher';
-
     const mStage = document.createElement('div');
     mStage.className = 'gitem__pic';
     mStage.style.aspectRatio = '4 / 5';
-
     const mBadge = document.createElement('span');
     mBadge.className = 'gitem__badge is-vorher';
     mBadge.textContent = 'Vorher';
-
     const mPrev = document.createElement('button');
     mPrev.type='button'; mPrev.className='car__nav car__nav--prev';
     mPrev.setAttribute('aria-label','Vorheriges Bild'); mPrev.textContent='‹';
     const mNext = document.createElement('button');
     mNext.type='button'; mNext.className='car__nav car__nav--next';
     mNext.setAttribute('aria-label','Nächstes Bild'); mNext.textContent='›';
-
     const mDots = document.createElement('div'); mDots.className='car__dots';
     vorherData.forEach((_,di)=>{
-      const d=document.createElement('span');
-      d.className='car__dot';
-      if(di===0) d.classList.add('is-on');
-      mDots.appendChild(d);
+      const d=document.createElement('span'); d.className='car__dot';
+      if(di===0) d.classList.add('is-on'); mDots.appendChild(d);
     });
-
     const mCap = document.createElement('figcaption');
     mCap.className='gitem__cap';
     mCap.textContent = vorherData[0].cap;
-
-    /* Zwei Ebenen für Crossfade */
     const mImgA = document.createElement('div');
     const mImgB = document.createElement('div');
     const ls='position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity .35s ease;';
     mImgA.style.cssText=ls+'opacity:1;z-index:1;';
     mImgB.style.cssText=ls+'opacity:0;z-index:2;';
     mImgA.style.backgroundImage="url('"+vorherData[0].src+"')";
-
     mStage.append(mImgA, mImgB, mBadge, mPrev, mNext, mDots);
     mc.append(mStage, mCap);
-
     let mci=0, mAL='A';
     function mRender(){
       const sub=vorherData[mci];
@@ -423,18 +365,10 @@ if(p.images && p.images.length){
     }
     mPrev.addEventListener('click',e=>{e.stopPropagation();mci=(mci-1+vorherData.length)%vorherData.length;mRender();});
     mNext.addEventListener('click',e=>{e.stopPropagation();mci=(mci+1)%vorherData.length;mRender();});
-
-    /* Vor das erste gitem einsetzen */
     gallery.insertBefore(mc, gitems[0]);
   }
-
-} else {
-  document.querySelectorAll('#gallery .ph').forEach((el,i)=>{
-    el.setAttribute('data-label', 'Projekt ' + id + ' · ' + el.getAttribute('data-label'));
-  });
 }
 
-/* ---------- Mobile tap lightbox ---------- */
 (function(){
   const lb     = document.getElementById('lb');
   const lbImg  = document.getElementById('lb-img');
@@ -442,16 +376,13 @@ if(p.images && p.images.length){
   const lbCap  = document.getElementById('lb-cap');
   const lbClose= document.getElementById('lb-close');
   const PHASE  = {vorher:'Vorher', nachher:'Nachher', prozess:'Prozess'};
-
   function openLb(src, phase, cap){
     lbImg.src = src;
     if(phase && PHASE[phase]){
       lbBadge.textContent = PHASE[phase];
       lbBadge.className = 'lb__badge is-' + phase;
       lbBadge.style.display = '';
-    } else {
-      lbBadge.style.display = 'none';
-    }
+    } else { lbBadge.style.display = 'none'; }
     lbCap.textContent = cap || '';
     lb.classList.add('is-open');
     document.body.classList.add('lb-open');
@@ -464,7 +395,6 @@ if(p.images && p.images.length){
   lbClose.addEventListener('click', closeLb);
   lb.addEventListener('click', e=>{ if(e.target === lb) closeLb(); });
   window.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeLb(); });
-
   function wireGallery(){
     if(!window.matchMedia('(max-width:760px)').matches) return;
     document.querySelectorAll('.gitem__pic').forEach(pic=>{
@@ -491,11 +421,8 @@ if(p.images && p.images.length){
   setTimeout(wireGallery, 200);
 })();
 
-/* ---------- Nav scroll state ---------- */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', ()=> nav.classList.toggle('scrolled', true), {passive:true});
-
-/* ---------- Mobile menu ---------- */
 const burger = document.getElementById('burger');
 const backdrop = document.getElementById('navBackdrop');
 function setMenu(open){
